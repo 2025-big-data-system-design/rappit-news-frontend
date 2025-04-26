@@ -1,6 +1,17 @@
-@import './header';
-@import './searchBar';
-@import './categoryFilterBar';
-@import './button';
-@import './filter';
-@import './newsCard';
+// 헤더(header) 관련 스타일 불러오기
+@use './header';
+
+// 검색창(searchBar) 관련 스타일 불러오기
+@use './searchBar';
+
+// 카테고리 필터바(categoryFilterBar) 관련 스타일 불러오기
+@use './categoryFilterBar';
+
+// 버튼(button) 관련 스타일 불러오기
+@use './button';
+
+// 필터(filter) 관련 스타일 불러오기
+@use './filter';
+
+// 뉴스 카드(newsCard) 관련 스타일 불러오기
+@use './newsCard';
