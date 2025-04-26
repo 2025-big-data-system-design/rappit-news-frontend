@@ -1,0 +1,62 @@
+.header-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 148px;
+  background-color: black;
+  height: 64px;
+
+  .logo {
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    text-decoration: none;
+  }
+
+  .search-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 40px;
+    min-width: 0; // overflow 방지
+  }
+
+  .search-bar-wrapper {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 9999px;
+    padding: 0 24px;
+    width: 100%;         // ⬅️ 최대한 넓게
+    height: 40px;
+    gap: 12px;
+
+    .search-icon {
+      color: black;
+      flex-shrink: 0;
+    }
+
+    input {
+      flex: 1;
+      min-width: 0;
+      border: none;
+      outline: none;
+      background: none;
+      font-size: 1rem;
+    }
+  }
+
+  .setting-icon {
+    color: white;
+    font-size: 1rem;
+    border: 1px solid white;
+    border-radius: 50%;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+  }
+}
