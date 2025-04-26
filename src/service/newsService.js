@@ -41,12 +41,49 @@ export const fetchIndexedNewsByPage = async (page = 1, size = 10) => {
 };
 
 /**
- * 언론사 이름 기준 성능 비교
- * GET /api/news/perf/press?name=언론사명
+ * 전체 언론사 목록 조회
+ * GET /api/press/all
  */
-export const comparePressPerformance = async (pressName) => {
-  const response = await axios.get('/api/news/perf/press', {
-    params: { name: pressName }
+export const fetchAllPress = async () => {
+  const response = await axios.get('/api/press/all');
+  return response.data;
+};
+
+/**
+ * 필터 및 검색 조건에 따라 뉴스 목록 조회
+ * GET /api/news/indexed/search
+ */
+export const searchIndexedNews = async (filters) => {
+  const {
+    page = 1,
+    size = 10,
+    sortOption = '최신순',
+    selectedCategory = '전체',
+    selectedPress = [],
+    query = '',
+    queryMode = 'title_content'
+  } = filters;
+
+  const response = await axios.get('/api/news/indexed/search', {
+    params: {
+      page,
+      size,
+      sortOption,
+      selectedCategory,
+      selectedPress: selectedPress.join(","), // ✅ 배열을 쉼표로 연결해서 전달
+      query,
+      queryMode
+    }
   });
+
+  return response.data;
+};  
+
+/**
+ * 전체 카테고리 목록 조회
+ * GET /api/category/all
+ */
+export const fetchAllCategories = async () => {
+  const response = await axios.get('/api/category/all');
   return response.data;
 };

@@ -1,0 +1,43 @@
+// src/styles/_searchBar.scss
+
+.search-bar-wrapper {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 9999px;
+    padding: 0 24px;
+    width: 100%; // ✅ search-bar 자체가 100% 채우게
+    height: 40px;
+    gap: 12px;
+  }
+  
+  .search-icon {
+    color: black;
+    flex-shrink: 0; // ✅ 아이콘은 크기 고정
+  }
+  
+  .search-input {
+    flex: 1;
+    min-width: 0;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 1rem;
+    color: #333;
+  
+    &::placeholder {
+      color: #aaa;
+    }
+  }
+  
+  .mode-selector {
+    border: none;
+    background: transparent;
+    font-size: 0.95rem;
+    color: #333;
+    padding: 6px 8px;
+    appearance: none;
+    min-width: 120px;
+    text-align: center;
+  }
+  
