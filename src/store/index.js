@@ -7,7 +7,7 @@ import newsFilterReducer from './newsFilterSlice'; // 뉴스 필터 상태 리�
 // store 설정
 const store = configureStore({
   reducer: {
-    newsFilter: newsFilterReducer,
+    newsFilter: newsFilterReducer, // 뉴스 필터 상태를 관리하는 리듀서 등록
   },
 });
 
