@@ -1,25 +1,37 @@
-// src/components/news/CategoryFilterButton.jsx
+// Redux 관련 import
+import { useDispatch, useSelector } from 'react-redux'; // Redux 상태 조회 및 액션 디스패치 훅
 
-import { useDispatch, useSelector } from 'react-redux';
-import { setSelectedCategory } from '../../store/newsFilterSlice';
+// 액션 import
+import { setSelectedCategory } from '../../store/newsFilterSlice'; // 선택한 카테고리 설정 액션
 
-function CategoryFilterButton({ label, categoryValue }) {
-  const dispatch = useDispatch();
+function CategoryFilterButton({ 
+  label, // 버튼에 표시할 라벨 텍스트 
+  categoryValue // 선택 시 설정할 카테고리 값
+}) {
+  const dispatch = useDispatch(); // React 디스패치를 위한 훅
+
+  // 현재 선택된 카테고리 상태 조회
   const selectedCategory = useSelector((state) => state.newsFilter.selectedCategory);
 
-  const isActive = selectedCategory === categoryValue; // ✅ 전역 상태와 비교해서 active 결정
+  // 현재 버튼이 선택된 상태인지 여부 (true/false)
+  const isActive = selectedCategory === categoryValue; 
 
+  // 클릭 시 선택된 카테고리를 변경
   const handleClick = () => {
-    dispatch(setSelectedCategory(categoryValue)); // ✅ 클릭 시 필터 변경
+    // 클릭한 카테고리 값을 전역 상태로 설정
+    dispatch(setSelectedCategory(categoryValue));
   };
 
   return (
     <li
-      className={`category-filter-item${isActive ? ' active' : ''}`} // ✅ 활성화 클래스 동적 부여
-      onClick={handleClick}
+      // 현재 선택된 카테고리에 따라 active 클래스 부여
+      className={`category-filter-item${isActive ? ' active' : ''}`} 
+      onClick={handleClick} // 클릭 시 카테고리 변경 함수 실행
+      // 커서 스타일을 포인터로 변경
       style={{ cursor: 'pointer' }}
     >
-      <span>{label}</span> {/* a 태그 안 쓰고 span으로 */}
+      {/* 버튼에 표시할 카테고리 라벨 */}
+      <span>{label}</span>
     </li>
   );
 }

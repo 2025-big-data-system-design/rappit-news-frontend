@@ -1,15 +1,18 @@
-// React 관련 import
-import React, { useState } from 'react';
-import { Button, Modal } from 'react-bootstrap';
+// React 및 상태 관리 import
+import React, { useState } from 'react'; // React 기본 라이브러리 (useState 훅 사용)
+import { Button, Modal } from 'react-bootstrap'; // BootStrap 버튼과 모달 컴포넌트
+
+// 컴포넌트 관련 import
 import { FaFilter } from 'react-icons/fa'; // 필터 아이콘
-import { FaMapMarkerAlt } from 'react-icons/fa'; // 위치 마커 아이콘
+import { FaMapMarkerAlt } from 'react-icons/fa'; // 지도 핀(위치) 아이콘
 
 function FilterButton({
-  buttonLabel = '필터',
-  modalTitle = '필터 설정',
-  children,
-  modalHeight = '560px'
+  buttonLabel = '필터', // 버튼에 표시할 텍스트 
+  modalTitle = '필터 설정', // 모달 상단 제목
+  children, // 모달 안에 표시할 내용
+  modalHeight = '560px' // 모달 높이 설정
 }) {
+  // 모달 표시 여부를 관리하는 상태
   const [show, setShow] = useState(false);
 
   // 버튼 레이블에 따라 아이콘을 선택
